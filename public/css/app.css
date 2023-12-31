@@ -23107,6 +23107,9 @@ nav.sticky-top {
   position: relative;
   position: relative;
 }
+.primary-menu ul.navbar-nav > li a img {
+  margin-right: 5px;
+}
 .primary-menu ul.navbar-nav > li:hover > a:not(.btn), .primary-menu ul.navbar-nav > li > a.active:not(.btn) {
   color: #0366d6;
   text-decoration: none;
@@ -23114,6 +23117,9 @@ nav.sticky-top {
 }
 .primary-menu ul.navbar-nav > li a.btn {
   padding: 0.4rem 1.4rem;
+}
+.primary-menu ul.navbar-nav > li.dropdown {
+  margin-top: 0px !important;
 }
 .primary-menu ul.navbar-nav > li.dropdown .dropdown-menu li > a:not(.btn) {
   padding: 8px 0px;

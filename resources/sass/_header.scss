@@ -109,6 +109,8 @@ nav.sticky-top {
 	  position:relative;
     }
 	
+    a img{ margin-right: 5px;}
+
     &:hover > a:not(.btn), & > a.active:not(.btn) {
       color: $primary-color;
 	  text-decoration:none;
@@ -116,6 +118,8 @@ nav.sticky-top {
     }
 	a.btn{padding: 0.4rem 1.4rem;}
     &.dropdown {
+      margin-top:0px!important;
+
       .dropdown-menu li {
         > a:not(.btn) {
           padding: 8px 0px;

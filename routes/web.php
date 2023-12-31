@@ -22,7 +22,10 @@ Route::get('/documentation', function () {
     return view('home');
 })->middleware(['auth', 'verified'])->name('documentation');
 
+
 Route::resource('pages',PageController::class); 
 Route::resource('navs',NavController::class);
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
+Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'store'])->name('user.profile.store');
 
 Auth::routes();
