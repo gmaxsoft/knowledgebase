@@ -1,0 +1,24 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// Variables
+@import 'variables';
+@import "mixins";
+
+// Core CSS
+@import "reset";
+@import "helpers";
+@import "layouts";
+
+// Content Blocks
+@import "header";
+@import "elements";
+@import "footer";
+@import "extras";
