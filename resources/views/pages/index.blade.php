@@ -31,11 +31,16 @@
 
             <div class="card bg-white">
                 <div class="card-header">
-                    <h3>{{ __("Pages") }}</h3>
+                    <div class="float-start">
+                        <h3>{{ __("Pages") }}</h3>
+                    </div>
+                    <div class="float-end">
+                        <a href="{{ route('pages.create') }}" class="btn btn-success btn-sm my-2 float-end"><i class="bi bi-plus-circle"></i> Add New Page</a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <p>Pages editing and management.</p>
-                    <a href="{{ route('pages.create') }}" class="btn btn-success btn-sm my-2 float-end"><i class="bi bi-plus-circle"></i> Add New Page</a>
+
                     <div class="clearfloat"></div>
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">

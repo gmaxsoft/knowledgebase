@@ -14,7 +14,7 @@ class NavController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request): View
+    public function index(): View
     {
 
         $navigations = NavPost::latest()->paginate(20);
@@ -26,7 +26,7 @@ class NavController extends Controller
             $nav_name[$navigation->id] = NavPost::latest()->where('id',  $navigation->id)->value('name');
         }
 
-        return view('navs.index', compact('navigations','nav_name'));
+        return view('navs.index', compact('navigations', 'nav_name'));
     }
 
     /**
@@ -34,7 +34,7 @@ class NavController extends Controller
      */
     public function create(): View
     {
-        $navigations = NavPost::latest()->get();
+        $navigations = NavPost::orderBy('id', 'asc')->get();
         return view('navs.create', compact('navigations'));
     }
 
@@ -74,7 +74,7 @@ class NavController extends Controller
      */
     public function edit(NavPost $nav): View
     {
-        $navigations = NavPost::latest()->where('parent_id', '=', 0)->get();
+        $navigations = NavPost::orderBy('id', 'asc')->where('parent_id', '=', 0)->get();
         return view('navs.edit', compact('nav', 'navigations'));
     }
 
@@ -100,6 +100,6 @@ class NavController extends Controller
     {
         $nav->delete();
 
-        return redirect()->route('navs.index')->with('success', 'Product deleted successfully');
+        return redirect()->route('navs.index')->with('success', 'Category deleted successfully');
     }
 }

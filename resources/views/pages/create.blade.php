@@ -35,15 +35,15 @@
             <div class="card bg-white">
                 <div class="card-header">
                     <div class="float-start">
-                        <h3>{{ __("Add new") }}</h3>
+                        <h3>{{ __("Add new page") }}</h3>
                     </div>
                     <div class="float-end">
-                        <a class="btn btn-primary" href="{{ route('navs.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ route('pages.index') }}"> Back</a>
                     </div>
                 </div>
                 <div class="card-body">
 
-                    <form action="{{ route('navs.store') }}" method="POST">
+                    <form action="{{ route('pages.store') }}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -52,8 +52,12 @@
                                     <input type="text" name="title" id="title" class="form-control" placeholder="Page Title">
                                 </div>
                                 <div class="form-group mt-3">
+                                    <strong>Content:</strong>
+                                    <textarea class="form-control" style="height:150px" name="content" id="content" placeholder="Page content"></textarea>
+                                </div>
+                                <div class="form-group mt-3">
                                     <strong>Category:</strong>
-                                    <select name="parent_id" id="parent_id" class="form-control">
+                                    <select name="category_id" id="category_id" class="form-control">
                                         <option value="0" selected>Home</option>
                                         @foreach ($navigations as $navigation)
                                         <option value="{{ $navigation->id }}">{{ $navigation->name }}</option>

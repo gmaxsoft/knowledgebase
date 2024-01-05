@@ -35,7 +35,7 @@
             <div class="card bg-white">
                 <div class="card-header">
                     <div class="float-start">
-                        <h3>{{ __("Add new") }}</h3>
+                        <h3>{{ __("Add new category") }}</h3>
                     </div>
                     <div class="float-end">
                         <a class="btn btn-primary" href="{{ route('navs.index') }}"> Back</a>
