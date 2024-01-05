@@ -2,7 +2,7 @@
 @section('content')
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('Create category') }}
+        {{ __('Create page') }}
     </h2>
 </x-slot>
 @guest
@@ -31,7 +31,7 @@
                 </ul>
             </div>
             @endif
-            
+
             <div class="card bg-white">
                 <div class="card-header">
                     <div class="float-start">
@@ -48,17 +48,16 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Name:</strong>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                                    <strong>Title:</strong>
+                                    <input type="text" name="title" id="title" class="form-control" placeholder="Page Title">
                                 </div>
                                 <div class="form-group mt-3">
-                                    
-                                    <strong>Parent category:</strong>
+                                    <strong>Category:</strong>
                                     <select name="parent_id" id="parent_id" class="form-control">
-                                    <option value="0" selected>Home</option>
-                                    @foreach ($navigations as $navigation)
-                                    <option value="{{ $navigation->id }}">{{ $navigation->name }}</option>
-                                    @endforeach
+                                        <option value="0" selected>Home</option>
+                                        @foreach ($navigations as $navigation)
+                                        <option value="{{ $navigation->id }}">{{ $navigation->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

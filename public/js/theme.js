@@ -8,9 +8,13 @@ $(window).on('load', function () {
 	$('body').delay(333);
 });
 
+$('div.alert').delay(1500);
+$('div.alert').hide(1000);
+
 /*-------------------------------
     Primary Menu
 --------------------------------- */
+
 
 // Dropdown show on hover
 $('.primary-menu ul.navbar-nav li.dropdown, .login-signup ul.navbar-nav li.dropdown').on("mouseover", function() {

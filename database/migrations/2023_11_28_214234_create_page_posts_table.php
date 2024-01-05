@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title', 500);
             $table->longText('content');
-            $table->string('metatitle', 100);
-            $table->longText('metadescription');
-            $table->longText('metakeywords');
+            $table->string('category', 600);
+            $table->integer('category_id')->index();
             $table->integer('user_id')->index();
             $table->timestamps();
         });

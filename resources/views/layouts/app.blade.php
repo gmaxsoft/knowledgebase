@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/font-awesome/css/all.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/magnific-popup/magnific-popup.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/highlight.js/styles/github.css') }}" />
-    <link href="https://cdn.datatables.net/v/bs4/dt-1.13.8/b-2.4.2/date-1.5.1/fh-3.4.0/r-2.5.0/rg-1.4.1/rr-1.4.1/datatables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" type="text/css">
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ asset('/assets/jquery/jquery.min.js') }}"></script>

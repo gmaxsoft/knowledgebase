@@ -10,26 +10,13 @@
     <meta name="author" content="Maxsoft">
     <meta name="robots" content="index,follow" />
     <link href="images/favicon.png" rel="icon" />
-    <link rel="stylesheet" type="text/css" href="assets/magnific-popup/magnific-popup.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/highlight.js/styles/github.css" />
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" type="text/css">
     <script src="{{ mix('js/app.js') }}"></script>
 </head>
 
 <body data-spy="scroll" data-target=".idocs-navigation" data-offset="125" class="antialiased">
 
-    <div class="preloader">
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-
-    <!-- Header -->
     <header id="header" class="sticky-top">
-        <!-- Navbar -->
         <nav class="primary-menu navbar navbar-expand-lg navbar-dropdown-dark">
             <div class="container-fluid">
                 <!-- Sidebar Toggler -->
@@ -42,7 +29,6 @@
 
                 <!-- Navbar Toggler -->
                 <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#header-nav"><span></span><span></span><span></span></button>
-
 
                 <div id="header-nav" class="collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav">
@@ -62,9 +48,7 @@
                 </div>
             </div>
         </nav>
-        <!-- Navbar End -->
     </header>
-    <!-- Header End -->
 
     <!-- Content -->
     <div id="content" role="main">

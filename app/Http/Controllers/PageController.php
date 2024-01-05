@@ -11,7 +11,9 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('pages.index');
+        $pages = PagePost::latest()->paginate(20);
+
+        return view('pages.index',compact('pages'));
     }
 
     /**
@@ -19,7 +21,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.create');
     }
 
     /**

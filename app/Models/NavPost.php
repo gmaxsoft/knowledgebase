@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class NavPost extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'user_id',
+        'parent_id',
+        'position'
+    ];
 }

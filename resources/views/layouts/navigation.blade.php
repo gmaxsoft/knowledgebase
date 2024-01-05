@@ -35,7 +35,7 @@
                 </li>
                 <li class="nav-item">
                     <x-nav-link :href="route('navs.index')" :active="request()->routeIs('navs')">
-                        {{ __('Navigation') }}
+                        {{ __('Categories') }}
                     </x-nav-link>
                 </li>
                 <li class="nav-item">

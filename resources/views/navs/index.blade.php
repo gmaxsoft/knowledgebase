@@ -6,52 +6,79 @@
     </h2>
 </x-slot>
 
+@guest
 <div class="py-12">
     <div class="max-w-7xl mx-auto px-6">
         <div class="bg-white overflow-hidden shadow-sm rounded-lg border-page">
             <div class="p-6 text-gray-900">
-                {{ __("This is the navigation page!") }}
-
-                <div class="card">
-                    <div class="card-body">
-                        <table id="navs_datatable" class="table table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Id.</th>
-                                    <th>Name</th>
-                                    <th>Data dodania</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                </div>
+                {{ __("You're not logged in! Please Log in to explore this page!.") }}
+                <br /><br />
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $(document).ready(function() {
-        var table = $('#navs_datatable').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: {
-                url: "{{ route('navs.index') }}",
-            },
-            columns: [{
-                    data: 'id',
-                    name: 'id'
-                },
-                {
-                    data: 'name',
-                    name: 'name'
-                },
-                {
-                    data: 'created_at',
-                    name: 'created_at'
-                }
-            ]
-        });
-    });
-</script>
+@else
+<div class="container">
+    <div class="row justify-content-center mt-3">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success" role="alert">
+                {{ $message }}
+            </div>
+            @endif
+
+            <div class="card bg-white">
+                <div class="card-header">
+                    <div class="float-start">
+                        <h3>{{ __("Categories") }}</h3>
+                    </div>
+                    <div class="float-end"><a href="{{ route('navs.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Add new</a></div>
+                </div>
+                <div class="card-body">
+                    <p>Categories editing and management.</p>
+                    <div class="clearfloat"></div>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" style="width: 5%">Id</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Parent category</th>
+                                    <th scope="col" style="width: 15%">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($navigations as $navigation)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>{{ $navigation->name }}</td>
+                                    <td>{{ $nav_name[$navigation->parent_id]}}</td>
+                                    <td>
+                                        <form action="{{ route('navs.destroy', $navigation->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="{{ route('navs.edit', $navigation->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this Category?');"><i class="bi bi-trash"></i> Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @empty
+                                <td colspan="6">
+                                    <span class="text-danger">
+                                        <strong>No navs found!</strong>
+                                    </span>
+                                </td>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@endguest
 @endsection

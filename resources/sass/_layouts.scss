@@ -1,6 +1,9 @@
-/* =================================== */
-/*  3. Layouts
-/* =================================== */
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
 
 #main-wrapper {
   background: #fff;
@@ -216,3 +219,7 @@
   margin-top: 100px;
   margin-bottom: 100px;
 }
+
+.card-header h3{ margin-bottom:0px!important; }
+.img-responsive{display:block;max-width:100%;height:auto}
+.clearfloat{height:0;margin:0;clear:both;line-height:0;font-size:0}

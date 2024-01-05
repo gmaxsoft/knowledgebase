@@ -7,6 +7,19 @@
         </h2>
     </x-slot>
 
+    @guest
+    <div class="py-12">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="bg-white overflow-hidden shadow-sm rounded-lg border-page">
+            <div class="p-6 text-gray-900">
+                {{ __("You're not logged in! Please Log in to explore this page!.") }}
+                <br /><br />
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    @else
     <!-- Sidebar Navigation -->
     <div class="idocs-navigation bg-light">
         <ul class="nav flex-column ">
@@ -114,4 +127,5 @@
             <hr class="divider">
         </div>
     </div>
+    @endguest
     @endsection
