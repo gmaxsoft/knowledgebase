@@ -10,6 +10,8 @@
     <meta name="author" content="Maxsoft">
     <meta name="robots" content="index,follow" />
     <link href="images/favicon.png" rel="icon" />
+    <link rel="stylesheet" type="text/css" href="assets/magnific-popup/magnific-popup.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/highlight.js/styles/github.css" />
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" type="text/css">
     <script src="{{ mix('js/app.js') }}"></script>
 </head>

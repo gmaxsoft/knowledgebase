@@ -18,65 +18,52 @@
     </div>
 </div>
 @else
-<div class="container">
-    <div class="row justify-content-center mt-3">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
+<div class="row justify-content-center mt-3">
+    <div class="col-sm-12 col-md-12 col-lg-12">
 
-            <div class="card bg-white">
-                <div class="card-header">
-                    <div class="float-start">
-                        <h3>{{ __("Edit categories") }}</h3>
-                    </div>
-                    <div class="float-end">
-                        <a class="btn btn-primary" href="{{ route('navs.index') }}"> Back</a>
-                    </div>
+        <div class="card bg-white">
+            <div class="card-header">
+                <div class="float-start">
+                    <h3>{{ __("Edit categories") }}</h3>
                 </div>
-                <div class="card-body">
+                <div class="float-end">
+                    <a class="btn btn-primary" href="{{ route('navs.index') }}"> Back</a>
+                </div>
+            </div>
+            <div class="card-body">
 
-                    <form action="{{ route('navs.update',$nav->id) }}" method="POST">
-                        @csrf
-                        @method('PUT')
+                <form action="{{ route('navs.update',$nav->id) }}" method="POST">
+                    @csrf
+                    @method('PUT')
 
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Name:</strong>
-                                    <input type="text" name="name" value="{{ $nav->name }}" class="form-control" placeholder="Name">
-                                </div>
-                                <div class="form-group mt-3">
-
-                                    <strong>Parent category:</strong>
-                                    <select name="parent_id" id="parent_id" class="form-control">
-                                        <option value="0" {{ $nav->parent_id == '0' ? 'selected' : '' }}>Home</option>
-                                        @foreach($navigations as $navigation)
-                                        <option value="{{ $navigation->id }}" {{ $navigation->id == $nav->parent_id ? 'selected' : '' }}>{{ $navigation->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Name:</strong>
+                                <input type="text" name="name" value="{{ $nav->name }}" class="form-control" placeholder="Name">
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <div class="float-end mt-3">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
+                            <div class="form-group mt-3">
+
+                                <strong>Parent category:</strong>
+                                <select name="parent_id" id="parent_id" class="form-control">
+                                    <option value="0" {{ $nav->parent_id == '0' ? 'selected' : '' }}>Home</option>
+                                    @foreach($navigations as $navigation)
+                                    <option value="{{ $navigation->id }}" {{ $navigation->id == $nav->parent_id ? 'selected' : '' }}>{{ $navigation->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
-                    </form>
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                            <div class="float-end mt-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
 
-                </div>
             </div>
         </div>
     </div>
 </div>
-
 @endguest
 @endsection

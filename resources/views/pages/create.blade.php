@@ -18,66 +18,56 @@
     </div>
 </div>
 @else
-<div class="container">
-    <div class="row justify-content-center mt-3">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
+<div class="row justify-content-center mt-3">
+    <div class="col-sm-12 col-md-12 col-lg-12">
 
-            <div class="card bg-white">
-                <div class="card-header">
-                    <div class="float-start">
-                        <h3>{{ __("Add new page") }}</h3>
-                    </div>
-                    <div class="float-end">
-                        <a class="btn btn-primary" href="{{ route('pages.index') }}"> Back</a>
-                    </div>
+        <div class="card bg-white">
+            <div class="card-header">
+                <div class="float-start">
+                    <h3>{{ __("Add new page") }}</h3>
                 </div>
-                <div class="card-body">
+                <div class="float-end">
+                    <a class="btn btn-primary" href="{{ route('pages.index') }}"> Back</a>
+                </div>
+            </div>
+            <div class="card-body">
 
-                    <form action="{{ route('pages.store') }}" method="POST">
-                        @csrf
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Title:</strong>
-                                    <input type="text" name="title" id="title" class="form-control" placeholder="Page Title">
-                                </div>
-                                <div class="form-group mt-3">
-                                    <strong>Content:</strong>
-                                    <textarea class="form-control" style="height:150px" name="content" id="content" placeholder="Page content"></textarea>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <strong>Category:</strong>
-                                    <select name="category_id" id="category_id" class="form-control">
-                                        <option value="0" selected>Home</option>
-                                        @foreach ($navigations as $navigation)
-                                        <option value="{{ $navigation->id }}">{{ $navigation->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                <form action="{{ route('pages.store') }}" method="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Title:</strong>
+                                <input type="text" name="title" id="title" class="form-control" placeholder="Page Title">
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <div class="float-end mt-3">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
+                            <div class="form-group mt-3">
+                                <strong>Content:</strong>
+                                <textarea class="form-control editor" style="height:150px" name="content" id="content" placeholder="Page content"></textarea>
+                            </div>
+                            <div class="form-group mt-3">
+                                <strong>Category:</strong>
+                                <select name="category_id" id="category_id" class="form-control">
+                                    <option value="0" selected>Home</option>
+                                    @foreach ($navigations as $navigation)
+                                    <option value="{{ $navigation->id }}">{{ $navigation->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
-                    </form>
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                            <div class="float-end mt-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
 
-                </div>
             </div>
         </div>
     </div>
 </div>
-
+<script>
+    ClassicEditor.create(document.querySelector('.editor'));
+</script>
 @endguest
 @endsection

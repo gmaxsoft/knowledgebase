@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/highlight.js/styles/github.css') }}" />
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" type="text/css">
     <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ asset('/assets/vendor/ckeditor5/build/ckeditor.js') }}"></script>
     <script src="{{ asset('/assets/jquery/jquery.min.js') }}"></script>
 </head>
 
@@ -35,7 +36,10 @@
 
         <!-- Page Content   -->
         <div id="content" role="main">
-            @yield('content')
+            <div class="container">
+                @include('components.messages')
+                @yield('content')
+            </div>
         </div>
 
         @if(Request::is('documentation'))

@@ -8,7 +8,7 @@ $(window).on('load', function () {
 	$('body').delay(333);
 });
 
-$('div.alert').delay(1500);
+$('div.alert').delay(5500);
 $('div.alert').hide(1000);
 
 /*-------------------------------

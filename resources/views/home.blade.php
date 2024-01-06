@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.view')
 
 @section('content')
     <x-slot name="header">
@@ -20,63 +20,49 @@
     </div>
     </div>
     @else
-    <!-- Sidebar Navigation -->
     <div class="idocs-navigation bg-light">
         <ul class="nav flex-column ">
-            <li class="nav-item"><a class="nav-link active" href="#idocs_start">Getting Started</a>
+            <li class="nav-item"><a class="nav-link active" href="#docs_1">Linux</a>
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link" href="#idocs_installation">Installation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_html_structure">HTML Structure</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_sass">Sass</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_color_schemes">Color Schemes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_theme_customization">Customization</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_logo_settings">Logo Settings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#docs_2">WSL Installation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#docs_3">WSL Commands</a></li>
                 </ul>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_layout">Layout</a>
+            <li class="nav-item"><a class="nav-link" href="#docs_layout">Docker</a>
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link" href="#idocs_header">Header</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_navbar">Navbar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_sidebar">Sidebar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_footer">Footer</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_box_layout">Box Layout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#docs_4">Docker Installation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#docs_5">Docker Commands</a></li>
                 </ul>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_content">Content</a>
+            <li class="nav-item"><a class="nav-link" href="#docs_content">Github</a>
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link" href="#idocs_typography">Typography</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_code">Code</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_table">Table</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_icons">Icons</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_image">Image</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_video">Video</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#docs_6">Github Installation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#docs_7">Github Commands</a></li>
                 </ul>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_components">Components</a>
+            <li class="nav-item"><a class="nav-link" href="#docs_components">Laravel</a>
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link" href="#idocs_accordion">Accordion</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_tabs">Tabs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_social_icon">Social Icon</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idocs_helper_classes">Helper Classes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#docs_8">Laravel Installation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#docs_9">Laravel Artisan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#docs_10">Laravel Commands</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#docs_11">Laravel Production</a></li>
+                    
                 </ul>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_faq">FAQ</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_source_credits">Source & Credits</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_support">Support</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_templates">More Templates</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_changelog">Changelog</a>
+            <li class="nav-item"><a class="nav-link" href="#docs_12">Composer</a>
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link" href="#v1-1">v1.1</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#v1-0">v1.0</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#docs_13">Composer Installation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#docs_14">Composer Commands</a></li>
                 </ul>
             </li>
+            <li class="nav-item"><a class="nav-link" href="#docs_15">MYSQL</a></li>
         </ul>
     </div>
 
     <div class="idocs-content-dash">
         <div class="container">
 
-            <section id="idocs_start">
+            <section id="docs_1">
                 <h1>Documentation</h1>
                 <h2>Your data Item Name Here</h2>
                 <p class="lead">Thank you so much for purchasing our item from maxsoft.</p>
@@ -100,7 +86,7 @@
 
             <hr class="divider">
 
-            <section id="idocs_installation">
+            <section id="docs_2">
                 <h2>Installation</h2>
                 <p class="lead">Follow the steps below to setup your site template:</p>
                 <ol>
@@ -125,6 +111,81 @@
             </section>
 
             <hr class="divider">
+
+            <section id="docs_3">
+          <h2>HTML Structure</h2>
+          <p>docs follows a simple and easy to customize coding structure. Here is the sample for your reference:<br>
+            The template is based on <a class="ml-1" target="_blank" href="https://getbootstrap.com/"><i class="fas fa-external-link-alt"></i> Bootstrap Framework</a></p>
+          <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+
+&lt;!-- Your Title, Description, Stylesheets
+============================================= --&gt;
+
+&lt;/head&gt;
+
+&lt;body data-spy=&quot;scroll&quot; data-target=&quot;.docs-navigation&quot; data-offset=&quot;125&quot;&gt;
+
+&lt;!-- Document Wrapper   
+=============================== --&gt;
+&lt;div id=&quot;main-wrapper&quot;&gt; 
+  
+  &lt;!-- Header
+  ============================ --&gt;
+  &lt;header id=&quot;header&quot; class=&quot;sticky-top&quot;&gt;
+   ......
+  &lt;/header&gt;
+  &lt;!-- Header End --&gt; 
+  
+  &lt;!-- Content
+  ============================ --&gt;
+  &lt;div id=&quot;content&quot; role=&quot;main&quot;&gt; 
+    
+    &lt;!-- Sidebar Navigation
+    ============================ --&gt;
+    &lt;div class=&quot;docs-navigation bg-light&quot;&gt;
+     .....
+    &lt;/div&gt;
+    
+    &lt;!-- Docs Content
+    ============================ --&gt;
+    &lt;div class=&quot;docs-content&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        .......
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- Content end --&gt; 
+  
+  &lt;!-- Footer --&gt;
+  &lt;footer id=&quot;footer&quot; class=&quot;section bg-dark footer-text-light&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt; ...... &lt;/div&gt;
+  &lt;/footer&gt;
+  &lt;!-- Footer end --&gt; 
+  
+&lt;/div&gt;
+&lt;!-- Document Wrapper end --&gt; 
+
+&lt;!-- JavaScript --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          <p class="alert alert-info">If you need more information, please visit bootstrap site: <a target="_blank" href="https://getbootstrap.com/docs/4.4/layout/grid/">https://getbootstrap.com</a></p>
+        </section>
+        
+		<hr class="divider">
+
+        <section id="docs_sass">
+          <h2>Sass</h2>
+          <p>We have added SASS <code>.scss</code> files in template. If you know how to use SASS you can change sass files and compile the css as well.
+            You can find sass file here - <code>HTML/assets/sass</code></p>
+          <p>Open the <code>sass/_variables.scss</code> and Edit the values according to your needs. If you need more Advanced Setup then you can Edit the Respective Files yourself which have been branched inside the same Folder. It is completely at your discretion only to include the Required <code>.scss</code> Files you need to minimize the amount of CSS & including only the Styles of the Blocks you need. This can be setup in your <code>stylesheet.scss</code> File.</p>
+        </section>
+        
+		<hr class="divider">
+
+      
+
         </div>
     </div>
     @endguest
