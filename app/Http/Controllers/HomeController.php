@@ -21,9 +21,10 @@ class HomeController extends Controller
 
     public function index(NavPost $nav, PagePost $page): View
     {
-        $categories_parent = NavPost::orderBy('position', 'asc')->where('parent_id', '>', 0)->get();
-        $categories_home = NavPost::orderBy('position', 'asc')->where('parent_id', '=', 0)->get();
-        $categories = NavPost::orderBy('position', 'asc')->get();
+        $user_id = Auth::id();
+        $categories_parent = NavPost::orderBy('position', 'asc')->where('parent_id', '>', 0)->where('user_id', '=', $user_id)->get();
+        $categories_home = NavPost::orderBy('position', 'asc')->where('parent_id', '=', 0)->where('user_id', '=', $user_id)->get();
+        $categories = NavPost::orderBy('position', 'asc')->where('user_id', '=', $user_id)->get();
 
         $category_parent = array();
         $category_home = array();
@@ -36,7 +37,7 @@ class HomeController extends Controller
             $category_home[] = $home->id;
         }
 
-        $pages = PagePost::orderBy('id', 'asc')->get();
+        $pages = PagePost::orderBy('id', 'asc')->where('user_id', '=', $user_id)->get();
 
         return view('home', compact('categories','category_parent','category_home','categories_parent','pages'));
     }

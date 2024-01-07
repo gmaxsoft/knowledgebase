@@ -17,8 +17,8 @@ class NavController extends Controller
      */
     public function index(): View
     {
-
-        $navigations = NavPost::orderBy('position', 'asc')->paginate(20);
+        $user_id = Auth::id();
+        $navigations = NavPost::orderBy('position', 'asc')->where('user_id', '=', $user_id)->paginate(20);
 
         $nav_name = [];
         $nav_name = ['0' => 'Home'];

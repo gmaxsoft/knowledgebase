@@ -18,7 +18,8 @@ class PageController extends Controller
      */
     public function index(): View
     {
-        $pages = PagePost::latest()->paginate(20);
+        $user_id = Auth::id();
+        $pages = PagePost::latest()->where('user_id', '=', $user_id)->paginate(20);
         return view('pages.index', compact('pages'));
     }
 
