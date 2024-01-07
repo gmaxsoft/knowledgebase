@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NavController;
 use App\Http\Controllers\PageController;
+use Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,15 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/documentation', function () {
-    return view('home');
-})->middleware(['auth', 'verified'])->name('documentation');
-
-
-Route::resource('pages',PageController::class); 
-Route::resource('navs',NavController::class);
-
-Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
-Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'store'])->name('user.profile.store');
-
+Route::get('/documentation', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('documentation');
+Route::resource('pages',PageController::class)->middleware(['auth', 'verified']); 
+Route::resource('navs',NavController::class)->middleware(['auth', 'verified']);
+Route::post('/navs/order_change', [NavController::class, 'order_change'])->name('navs.order_change');
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('profile.index');
+Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'store'])->middleware(['auth', 'verified'])->name('user.profile.store');
 Auth::routes();

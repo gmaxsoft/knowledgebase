@@ -77,7 +77,6 @@ $('.navbar-toggler').on('click', function() {
 	$(this).toggleClass('show');
 });
 
-
 /*------------------------
    Side Navigation
 -------------------------- */
@@ -86,7 +85,6 @@ $('#sidebarCollapse').on('click', function () {
 	$('#sidebarCollapse span:nth-child(3)').toggleClass('w-50');
 	$('.idocs-navigation').toggleClass('active');
 });
-
 
 /*------------------------
    Sections Scroll

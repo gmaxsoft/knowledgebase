@@ -71,7 +71,7 @@ class PageController extends Controller
      */
     public function edit(PagePost $page): View
     {
-        $navigations = NavPost::orderBy('id', 'asc')->where('parent_id', '=', 0)->get();
+        $navigations = NavPost::orderBy('id', 'asc')->get();
         return view('pages.edit', compact('page', 'navigations'));
     }
 

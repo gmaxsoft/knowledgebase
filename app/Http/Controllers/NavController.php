@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -17,7 +18,7 @@ class NavController extends Controller
     public function index(): View
     {
 
-        $navigations = NavPost::latest()->paginate(20);
+        $navigations = NavPost::orderBy('position', 'asc')->paginate(20);
 
         $nav_name = [];
         $nav_name = ['0' => 'Home'];
@@ -48,7 +49,8 @@ class NavController extends Controller
         ]);
 
         $user_id = Auth::id();
-        $position = 0;
+        $max_position = NavPost::orderBy('position', 'desc')->value('position');
+        $position = $max_position + 1;
         $input = $request->all();
 
         NavPost::create([
@@ -58,7 +60,7 @@ class NavController extends Controller
             'position' => $position
         ]);
 
-        return redirect()->route('navs.index')->with('success', 'Navigation created successfully.');
+        return redirect()->route('navs.index')->with('success', 'Category created successfully.');
     }
 
     /**
@@ -89,8 +91,7 @@ class NavController extends Controller
 
         $nav->update($request->all());
 
-        return redirect()->route('navs.index')
-            ->with('success', 'Navigation updated successfully');
+        return redirect()->route('navs.index')->with('success', 'Category updated successfully');
     }
 
     /**
@@ -99,7 +100,18 @@ class NavController extends Controller
     public function destroy(NavPost $nav)
     {
         $nav->delete();
+        DB::table('nav_posts')->where('parent_id', $nav->id)->delete();
 
         return redirect()->route('navs.index')->with('success', 'Category deleted successfully');
+    }
+
+    public function order_change(Request $request)
+    {
+        $data = $request->input('order');
+        foreach ($data as $index => $id) {
+            NavPost::where('id', $id)->update(['position' => $index]);
+        }
+
+        return redirect()->route('navs.index')->with('success', 'Post Order changed successfully');
     }
 }

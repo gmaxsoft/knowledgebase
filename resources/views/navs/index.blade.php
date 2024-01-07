@@ -36,16 +36,18 @@
                     <table class="table table-striped table-hover">
                         <thead class="table-dark">
                             <tr>
+                                <th scope="col" style="width: 5%"></th>
                                 <th scope="col" style="width: 5%">Id</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Parent category</th>
                                 <th scope="col" style="width: 15%">Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="sortable">
                             @forelse ($navigations as $navigation)
-                            <tr>
-                                <th scope="row">{{ $loop->iteration }}</th>
+                            <tr data-id="{{ $navigation->id }}">
+                                <td class="handle"><i class="fa fa-arrows-alt"></i></td>
+                                <td scope="row" class="pos_num">{{ $loop->iteration }}</td>
                                 <td>{{ $navigation->name }}</td>
                                 <td>{{ $nav_name[$navigation->parent_id]}}</td>
                                 <td>
@@ -60,7 +62,7 @@
                             @empty
                             <td colspan="6">
                                 <span class="text-danger">
-                                    <strong>No navs found!</strong>
+                                    <strong>No categories found!</strong>
                                 </span>
                             </td>
                             @endforelse
@@ -72,5 +74,41 @@
 
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $("#sortable").sortable({
+            placeholder: "ui-state-highlight",
+            handle: '.handle',
+            update: function(event, ui) {
+
+                var post_order_ids = new Array();
+                $('#sortable tr').each(function() {
+                    post_order_ids.push($(this).data("id"));
+                });
+
+                console.log(post_order_ids);
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('navs.order_change') }}",
+                    dataType: "json",
+                    data: {
+                        order: post_order_ids,
+                        _token: "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        //toastr.success(response.message);
+                        $('#sortable tr').each(function(index) {
+                            $(this).find('.pos_num').text(index + 1);
+                        });
+
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            }
+        });
+    });
+</script>
 @endguest
 @endsection

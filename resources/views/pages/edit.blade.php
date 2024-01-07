@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-group mt-3">
                                 <strong>Content:</strong>
-                                <textarea class="form-control editor" style="height:150px" name="content" id="content" placeholder="Page content">{{ $page->content }}</textarea>
+                                <textarea class="form-control editor" style="height:450px" name="content" id="content" placeholder="Page content">{{ $page->content }}</textarea>
                             </div>
                             <div class="form-group mt-3">
                                 <strong>Category:</strong>
